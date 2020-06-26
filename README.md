@@ -28,7 +28,9 @@ Jiang, H., Wong, W.H. (2008) SeqMap: Mapping Massive Amount of Oligonucleotides 
 
 
 example of genes.csv
+
 "
+
 name	chrom	start	end
 
 EGFR	chr7	55086525	55086725
@@ -42,38 +44,34 @@ GPR35	chr2	241544625	241544825
 
 parameters:
 
-Flag	Description	Default
+-o	Output csv file with names for target genes, spacer sequences, spacer orientations, chromosome locations, cleavage site locations, off-target scores, and oligo library sequences in columns from left to right,	default:final_guides.csv
 
--o	Output csv file with names for target genes, spacer sequences, spacer orientations, chromosome locations, cleavage site locations, off-target scores, and oligo library sequences in columns from left to right	final_guides.csv
+-i	Prefix of input genome 2bit file,	default:hg38
 
--i	Prefix of input genome 2bit file	hg38
+-g	Target genes csv file with the gene name, chromosome, start of the targeted region, and end of the targeted region in columns from left to right,	default:genes.csv
 
--g	Target genes csv file with the gene name, chromosome, start of the targeted region, and end of the targeted region in columns from left to right	genes.csv
+-gc	Minimum GC content required for an sgRNA spacer sequence,	default:25
 
--gc	Minimum GC content required for an sgRNA spacer sequence	25
+-s	Minimum spacing required between cleavage sites of sgRNAs targeting the same genomic region,	default:20
 
--s	Minimum spacing required between cleavage sites of sgRNAs targeting the same genomic region	20
+-n	Maximum number of guides selected targeting each gene in the target genes csv file,	default:3
 
--n	Maximum number of guides selected targeting each gene in the target genes csv file	3
+-db	Use an existing off-target database constructed from a previous custom library design for a new library, default:False
 
--db	Use an existing off-target database constructed from a previous custom library design for a new library	False
-
--gecko or -sam	Specify the type of library and add the respective flanking sequences to the spacers for the oligo library synthesis
+-gecko or -sam	Specify the type of library and add the respective flanking sequences to the spacers for the oligo library synthesis, default: none
 
 
 ##### design_targeted_library
 
 parameters:
 
-Flag	Description	Default
+-o	Output csv file with names for target genes, corresponding spacer sequences, and oligo library sequences in columns from left to right,	default:oligos.csv
 
--o	Output csv file with names for target genes, corresponding spacer sequences, and oligo library sequences in columns from left to right	oligos.csv
+-l	Annotated library csv file with names in the first column and corresponding spacer sequences in the second column,	default:annotated_library.csv
 
--l	Annotated library csv file with names in the first column and corresponding spacer sequences in the second column	annotated_library.csv
+-g	Target genes csv file with names of target genes,	target_genes.csv
 
--g	Target genes csv file with names of target genes	target_genes.csv
-
--gecko or -sam	Specify the type of library and add the respective flanking sequences to the spacers for the oligo library synthesis
+-gecko or -sam	Specify the type of library and add the respective flanking sequences to the spacers for the oligo library synthesis, default: none
 
 
 ##### count_spacers
@@ -82,13 +80,13 @@ parameters:
 
 Flag	Description	Default
 
--f	Fastq file containing NGS data for analysis	NGS.fastq
+-f	Fastq file containing NGS data for analysis,	default:NGS.fastq
 
--o	Output csv file with guide spacer sequences in the first column and respective read counts in the second column	library_count.csv
+-o	Output csv file with guide spacer sequences in the first column and respective read counts in the second column,	default:library_count.csv
 
--i	Input csv file with guide spacer sequences	library_sequences.csv
+-i	Input csv file with guide spacer sequences, default:library_sequences.csv
 
--no-g	Indicate absence of a guanine before the guide spacer sequence	guanine is present
+-no-g	Indicate absence of a guanine before the guide spacer sequence, 	default:guanine is present
 
 
 ##### calculate_indel
@@ -107,17 +105,16 @@ example3	example3.fastq	CACCCACACCAACCGCAGAA	CTGGGTTTAACCGAGCTAGTCCTGAAGATCTTGAG
 
 parameters:
 
-Flag	Description	Default
 
--f	Indicates input file is fasta format	Fastq file format
+-f	Indicates input file is fasta format,	default:Fastq file format
 
--a	Uses alternative hashing algorithm for calculation74	Ratcliff-Obershelp based algorithm73
+-a	Uses alternative hashing algorithm for calculation74,	default:Ratcliff-Obershelp based algorithm73
 
--o	Output file with calculated indel rates and statistics	calc_indel_out.csv
+-o	Output file with calculated indel rates and statistics,	default:calc_indel_out.csv
 
--i	Input file with sample name, fasta or fastq file name, guide sequence, PCR target amplicon, and experimental or control in columns from left to right	sample_sheet.csv
+-i	Input file with sample name, fasta or fastq file name, guide sequence, PCR target amplicon, and experimental or control in columns from left to right,	default:sample_sheet.csv
 
--v or -q	Increase or decrease reporting as script runs	Standard reporting
+-v or -q	Increase or decrease reporting as script runs,	default:Standard reporting
 
--no-m	Does not perform MLE correction	MLE correction is performed
+-no-m	Does not perform MLE correction,	default:MLE correction is performed
 
