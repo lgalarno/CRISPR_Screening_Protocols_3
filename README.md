@@ -4,7 +4,29 @@ Adapted from :
 Scripts from the Joung et al Nature Protocols 2016 manuscript on knockout and transcriptional activation screening
 https://github.com/fengzhanglab/Screening_Protocols_manuscript
 
+Python packages required are:
+biopython
+numpy
+scipy
+twobitreader
+
 ##### design_library
+Download the genome 2bit file that the target gene coordinates corresponds to from the UCSC Genome Browser (http://hgdownload.cse.ucsc.edu/downloads.html). 
+
+For seqmap, install the version 1.0.13 source code for all platforms (http://www-personal.umich.edu/~jianghui/seqmap/ or available here) and compile with g++ -O3 -m64 -o seqmap match.cpp. Place the seqmap folder in the same folder as the python script design_library.py.
+
+About seqmap:
+Author
+
+SeqMap was started in the Wong Lab and is developed and maintained by Hui Jiang.
+
+Reference
+
+Jiang, H., Wong, W.H. (2008) SeqMap: Mapping Massive Amount of Oligonucleotides to the Genome, Bioinformatics, 24(20). [online]
+
+
+
+
 example of genes.csv
 "
 name	chrom	start	end
